@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import Map from './components/Map';
 import './App.css';
+import { useState, useEffect } from 'react';
+import LoaderSpinner from './components/LoaderSpinner';
+import Header from './components/Header';
 
 function App() {
+  
+  const [eventData, setEventData] = useState([])
+  const [loading, setLoading] = useState(false)
+  
+  useEffect(()=>{
+    
+    const fetchEvents = async () =>{
+      setLoading(true)
+      //const res = await fetch('https://raw.githubusercontent.com/ktla5/calfire-incidents/main/incidents.json')
+      const res = await fetch('https://raw.githubusercontent.com/ktla5/us-wildfires/main/incidents.json')
+      //const res = await fetch('https://eonet.sci.gsfc.nasa.gov/api/v2.1/events')
+      //const {Incidents} = await res.json()
+      const {markers} = await res.json()
+
+      //setEventData(Incidents)
+      setEventData(markers)
+      setLoading(false)
+    }
+    
+    fetchEvents()
+
+    console.log(eventData)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      { !loading ? <Map eventData={eventData} /> : <LoaderSpinner /> }
     </div>
   );
 }
