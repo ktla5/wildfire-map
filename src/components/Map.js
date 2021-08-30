@@ -25,7 +25,7 @@ const Map = ({ center, zoom, eventData }) => {
     <MapContainer style={{ height: "100vh" }} center={center} zoom={zoom}>
       <TileLayer
         //url="https://api.mapbox.com/styles/v1/kcdeleon/ckqqdo2rq4lp519qfvfp76qiq/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoia2NkZWxlb24iLCJhIjoiY2txcWRxeDMxMjVmcjJ3bzFrNXVja2gxdSJ9.Ngo-IZUCAm3bsy4eMzoSlw"
-        url="https://api.mapbox.com/styles/v1/kcdeleon/cksfbbs4x41im17pdwjb2cphd/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoia2NkZWxlb24iLCJhIjoiY2o2OG5yMTF3MGhkODMycGxnamZwaGsydiJ9._CkK8kkDpQ_88-_aiV4YMg" />
+        url="https://api.mapbox.com/styles/v1/kcdeleon/cksz70cng57pr17k63ycmyvp3/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoia2NkZWxlb24iLCJhIjoiY2o2OG5yMTF3MGhkODMycGxnamZwaGsydiJ9._CkK8kkDpQ_88-_aiV4YMg" />
         //attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       //  />
       {markers}
